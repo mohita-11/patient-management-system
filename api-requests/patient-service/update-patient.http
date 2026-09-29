@@ -1,0 +1,12 @@
+### PUT request to update patient
+PUT http://localhost:4000/patients/223e4567-e89b-12d3-a456-426614174013
+Content-Type: application/json
+
+{
+  "name": "John Kramer",
+  "address": "Street 4",
+  "email": "abc2new@abc.com",
+  "dateOfBirth": "1996-10-11"
+}
+
+###

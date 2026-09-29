@@ -1,5 +1,6 @@
 package com.pm.patient_service.exception;
 
+import com.pm.patient_service.repository.PatientNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,14 @@ public class GlobalExceptionHandler {
 
         Map<String,String> errorMap = new HashMap<>();
         errorMap.put("message", "Email already exists!");
+        return ResponseEntity.badRequest().body(errorMap);
+    }
+
+    @ExceptionHandler(PatientNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handlePatientNotFoundException(PatientNotFoundException ex) {
+        log.warn("Patient not found : "+ex.getMessage());
+        Map<String,String> errorMap = new HashMap<>();
+        errorMap.put("message", "Patient not found!");
         return ResponseEntity.badRequest().body(errorMap);
     }
 }
