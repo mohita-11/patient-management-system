@@ -24,4 +24,8 @@ hs_err_pid*
 replay_pid*
 
 
-local.properties
+#local configurations
+config/
+
+#local env var
+.env
